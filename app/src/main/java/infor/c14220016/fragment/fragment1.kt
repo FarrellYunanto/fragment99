@@ -42,9 +42,9 @@ class fragment1 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val textaa = view.findViewById<TextView>(R.id.tv1)
         if (arguments != null){
-            val valuetext = arguments?.getString("DATA")
-            val textaa = view.findViewById<TextView>(R.id.tv1)
+            val valuetext = arguments?.getString("DATA").toString()
             textaa.text = valuetext
         }
     }

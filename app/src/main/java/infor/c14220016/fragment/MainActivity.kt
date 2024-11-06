@@ -9,6 +9,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+    private var angka = 99
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
 
         val mFragmentManager = supportFragmentManager
         val mfragment1 = fragment1()
@@ -35,9 +38,6 @@ class MainActivity : AppCompatActivity() {
             mfragment2.view?.findViewById<TextView>(R.id.tv2),
             mfragment3.view?.findViewById<TextView>(R.id.tv3),
         )
-//        val _text1 = mfragment1.view?.findViewById<TextView>(R.id.tv1)
-//        val _text2 = mfragment2.view?.findViewById<TextView>(R.id.tv1)
-//        val _text3 = mfragment3.view?.findViewById<TextView>(R.id.tv1)
 
         val _btn1 = findViewById<Button>(R.id.to1)
         val _btn2 = findViewById<Button>(R.id.to2)
@@ -46,10 +46,10 @@ class MainActivity : AppCompatActivity() {
         _btn1.setOnClickListener {
             val f = fragment1()
             val mbundle = Bundle()
-//                mbundle.putString("DATA", _text1?.text.toString().toInt().minus(3).toString())
+            angka -=1
+            mbundle.putString("DATA", angka.toString())
+            f.arguments = mbundle
 
-            mbundle.putString("DATA", texts.get(x)?.text.toString().toInt().minus(3).toString())
-            x = 0
             mFragmentManager.beginTransaction().apply {
                 replace(R.id.mainFrame, f, fragment1::class.java.simpleName)
                 addToBackStack(null)
@@ -60,10 +60,11 @@ class MainActivity : AppCompatActivity() {
         _btn2.setOnClickListener {
             val f = fragment2()
             val mbundle = Bundle()
-//            mbundle.putString("DATA", _text2?.text.toString().toInt().minus(3).toString())
+            angka -=2
+            mbundle.putString("DATA", angka.toString())
+            f.arguments = mbundle
 
-            mbundle.putString("DATA", texts.get(x)?.text.toString().toInt().minus(3).toString())
-            x = 1
+
             mFragmentManager.beginTransaction().apply {
                 replace(R.id.mainFrame, f, fragment2::class.java.simpleName)
                 addToBackStack(null)
@@ -74,10 +75,10 @@ class MainActivity : AppCompatActivity() {
         _btn3.setOnClickListener {
             val f = fragment3()
             val mbundle = Bundle()
-//            mbundle.putString("DATA", _text3?.text.toString().toInt().minus(3).toString())
+            angka -= 3
+            mbundle.putString("DATA", angka.toString())
+            f.arguments = mbundle
 
-            mbundle.putString("DATA", texts.get(x)?.text.toString().toInt().minus(3).toString())
-            x = 2
             mFragmentManager.beginTransaction().apply {
                 replace(R.id.mainFrame, f, fragment3::class.java.simpleName)
                 addToBackStack(null)

@@ -23,7 +23,7 @@
             android:layout_marginRight="32dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Game"/>
+            android:text="1"/>
 
         <Button
             android:id="@+id/to2"
@@ -31,14 +31,14 @@
             android:layout_marginRight="32dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Score"/>
+            android:text="2"/>
 
         <Button
             android:id="@+id/to3"
             android:backgroundTint="#312c51"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Config"/>
+            android:text="3"/>
     </LinearLayout>
 
     <FrameLayout
